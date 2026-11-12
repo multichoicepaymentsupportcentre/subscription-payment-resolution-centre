@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Support & Payment Resolution Centre</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f9;color:#222}
+header{background:#082b55;color:white;padding:25px 15px;text-align:center}
+header h1{margin:0;font-size:25px}
+header p{margin-bottom:0}
+.container{max-width:750px;margin:30px auto;padding:20px}
+.card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px #0001}
+h2{color:#082b55}
+label{display:block;margin-top:16px;font-weight:bold}
+input,select,textarea{width:100%;padding:13px;margin-top:7px;border:1px solid #ccc;border-radius:6px;font-size:15px}
+button{background:#087bdb;color:white;border:0;padding:15px;width:100%;margin-top:22px;border-radius:6px;font-size:16px;cursor:pointer}
+button:hover{background:#065ca5}
+.notice{background:#eaf3ff;padding:15px;border-radius:6px;margin:20px 0}
+footer{text-align:center;padding:25px;color:#777}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Customer Support & Payment Resolution Centre</h1>
+<p>Submit your payment complaints and subscription enquiries.</p>
+</header>
+
+<div class="container">
+<div class="card">
+<h2>Customer Complaint Form</h2>
+<p>Please provide accurate information so our support team can review your request.</p>
+
+<form action="https://formsubmit.co/YOUR_EMAIL_ADDRESS" method="POST">
+
+<input type="hidden" name="_subject" value="New Customer Payment Complaint">
+<input type="hidden" name="_captcha" value="true">
+
+<label>Full Name</label>
+<input type="text" name="Full Name" required>
+
+<label>Phone Number</label>
+<input type="tel" name="Phone Number" required>
+
+<label>Email Address</label>
+<input type="email" name="Email">
+
+<label>Service Type</label>
+<select name="Service Type" required>
+<option value="">Select service</option>
+<option>DStv</option>
+<option>GOtv</option>
+<option>Other</option>
+</select>
+
+<label>IUC / Smartcard Number</label>
+<input type="text" name="IUC Number" required>
+
+<label>Amount Paid (GHS)</label>
+<input type="number" name="Amount Paid" min="0" step="0.01" required>
+
+<label>Payment Network</label>
+<select name="Payment Network" required>
+<option value="">Select network</option>
+<option>MTN MoMo</option>
+<option>Telecel Cash</option>
+<option>AT Money</option>
+<option>Bank Transfer</option>
+<option>Other</option>
+</select>
+
+<label>Transaction ID</label>
+<input type="text" name="Transaction ID" required>
+
+<label>Payment Date</label>
+<input type="date" name="Payment Date" required>
+
+<label>Describe Your Complaint</label>
+<textarea name="Complaint Details" rows="5" required></textarea>
+
+<div class="notice">
+<strong>Important:</strong> Do not enter your MoMo PIN, password, OTP or banking login details.
+</div>
+
+<button type="submit">Submit Complaint</button>
+</form>
+</div>
+</div>
+
+<footer>
+Customer Support & Payment Resolution Centre
+</footer>
+
+</body>
+</html>

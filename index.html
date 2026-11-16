@@ -548,6 +548,7 @@ document.getElementById("supportForm").addEventListener("submit", async function
     full_name: form.elements.namedItem("fullname").value.trim(),
     phone: form.elements.namedItem("phone").value.trim(),
     iuc_number: form.elements.namedItem("iuc_number").value.trim(),
+    amount_paid: parseFloat(form.elements.namedItem("amount_paid").value),
     email: form.elements.namedItem("email").value.trim() || null,
     service: form.elements.namedItem("service").value
 };

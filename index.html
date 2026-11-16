@@ -540,12 +540,13 @@ document.getElementById("supportForm").addEventListener("submit", async function
     button.disabled = true;
     button.textContent = "Submitting...";
 
-    const data = {
-        full_name: form.elements.namedItem("fullname").value.trim(),
-        phone: form.elements.namedItem("phone").value.trim(),
-        email: form.elements.namedItem("email").value.trim() || null,
-        service: form.elements.namedItem("service").value
-    };
+   const data = {
+    full_name: form.elements.namedItem("fullname").value.trim(),
+    phone: form.elements.namedItem("phone").value.trim(),
+    iuc_number: form.elements.namedItem("iuc_number").value.trim(),
+    email: form.elements.namedItem("email").value.trim() || null,
+    service: form.elements.namedItem("service").value
+};
 
     try {
         const { error } = await supabaseClient

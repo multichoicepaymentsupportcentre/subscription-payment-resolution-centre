@@ -417,13 +417,7 @@ Complete the information below. Please provide accurate
 details to help with the review of your enquiry.
 </p>
 
-<form action="https://formsubmit.co/multichoiceghanalimited9@gmail.com"
-method="POST">
-
-<input type="hidden" name="_subject"
-value="New Customer Support Submission">
-
-<input type="hidden" name="_captcha" value="true">
+<form id="supportForm">
 
 <div class="form-grid">
 
@@ -431,24 +425,24 @@ value="New Customer Support Submission">
 
 <div class="field">
 <label>Full Name</label>
-<input type="text" name="Full Name" required>
+<input type="text" name="fullname" required>
 </div>
 
 <div class="field">
 <label>Phone Number</label>
-<input type="tel" name="Phone Number" required>
+<input type="tel" name="phone" required>
 </div>
 
 <div class="field full">
 <label>Email Address</label>
-<input type="email" name="Email">
+<input type="email" name="email">
 </div>
 
-<h3 class="form-title">02 — Subscription Information</h3>
+<h3 class="form-title">02 — Support Request</h3>
 
 <div class="field">
 <label>Service Type</label>
-<select name="Service Type" required>
+<select name="service" required>
 <option value="">Choose Service</option>
 <option>DStv</option>
 <option>GOtv</option>
@@ -456,55 +450,16 @@ value="New Customer Support Submission">
 </select>
 </div>
 
-<div class="field">
-<label>IUC / Smartcard Number</label>
-<input type="text" name="IUC Number" required>
-</div>
-
-<h3 class="form-title">03 — Payment Information</h3>
-
-<div class="field">
-<label>Amount Paid (GHS)</label>
-<input type="number" name="Amount Paid"
-min="0" step="0.01" required>
-</div>
-
-<div class="field">
-<label>Payment Method</label>
-<select name="Payment Method" required>
-<option value="">Choose Method</option>
-<option>MTN MoMo</option>
-<option>Telecel Cash</option>
-<option>AT Money</option>
-<option>Bank Transfer</option>
-<option>Other</option>
-</select>
-</div>
-
-<div class="field">
-<label>Transaction Reference</label>
-<input type="text" name="Transaction Reference" required>
-</div>
-
-<div class="field">
-<label>Payment Date</label>
-<input type="date" name="Payment Date" required>
-</div>
-
-<h3 class="form-title">04 — Request Details</h3>
-
 <div class="field full">
 <label>Describe Your Issue</label>
-<textarea name="Complaint Details"
-rows="5" required></textarea>
+<textarea name="complaint" rows="5" required></textarea>
 </div>
 
 </div>
 
 <div class="notice">
-By submitting this form, you agree to have the information
-provided used to review your support request. Never provide
-your PIN, password, OTP or banking login credentials.
+This is an independent customer assistance service.
+Never submit passwords, PINs, OTPs or banking credentials.
 </div>
 
 <button type="submit" class="submit-btn">
@@ -568,6 +523,54 @@ portal and is not an official MultiChoice website.
 </p>
 
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://fdhmrmdmpbommoshbmjt.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_OT6IIXb5SVOhH1lkkw7ELQ_UAIuYJKv";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+document.getElementById("supportForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const button = form.querySelector("button[type='submit']");
+
+    button.disabled = true;
+    button.textContent = "Submitting...";
+
+    const data = {
+        full_name: form.fullname.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim() || null,
+        service: form.service.value,
+        complaint: form.complaint.value.trim()
+    };
+
+    try {
+        const { error } = await supabase
+            .from("support_enquiries")
+            .insert([data]);
+
+        if (error) throw error;
+
+        alert("Your support enquiry was submitted successfully!");
+        form.reset();
+
+    } catch (error) {
+        console.error(error);
+        alert("Submission failed. Please try again.");
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "Submit Support Request →";
+    }
+});
+</script>
 </body>
 </html>

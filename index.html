@@ -521,7 +521,7 @@ const SUPABASE_URL = "https://fdhmrmdmpbommoshbmjt.supabase.co";
 
 const SUPABASE_KEY = "sb_publishable_OT6IIXb5SVOhH1lkkw7ELQ_UAIuYJKv";
 
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
@@ -544,7 +544,7 @@ document.getElementById("supportForm").addEventListener("submit", async function
     };
 
     try {
-        const { error } = await supabase
+        const { error } = await supabaseClient
             .from("support_enquiries")
             .insert([data]);
 

@@ -518,7 +518,51 @@ Resolution may take up to 5 minutes after confirmation.
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-\<script> const SUPABASE_URL = "[https://fdhmrmdmpbommoshbmjt.supabase.co](https://fdhmrmdmpbommoshbmjt.supabase.co)";  const SUPABASE_KEY = "sb_publishable_OT6IIXb5SVOhH1lkkw7ELQ_UAIuYJKv";  const supabaseClient = window\.supabase.createClient(     SUPABASE_URL,     SUPABASE_KEY );  document.getElementById("supportForm").addEventListener("submit", async function(e) {     e.preventDefault();      const form = e.target;     const button = form.querySelector("button[type='submit']");      button.disabled = true;     button.textContent = "Submitting...";      const data = {         full_name: form.elements.namedItem("fullname").value.trim(),         phone: form.elements.namedItem("phone").value.trim(),         email: form.elements.namedItem("email").value.trim() || null,         service: form.elements.namedItem("service").value     };      try {         const { error } = await supabaseClient             .from("support_enquiries")             .insert([data]);          if (error) throw error;          alert("Your support enquiry was submitted successfully!");         form.reset();      } catch (error) {         console.error(error);         alert("Submission failed. Please try again.");      } finally {         button.disabled = false;         button.textContent = "Submit Support Request →";     } }); \</script>
+<script>
+const SUPABASE_URL = "https://fdhmrmdmpbommoshbmjt.supabase.co";
+const SUPABASE_KEY = "sb_publishable_OT6IIXb5SVOhH1lkkw7ELQ_UAIuYJKv";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+document.getElementById("supportForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const button = form.querySelector("button[type='submit']");
+
+    button.disabled = true;
+    button.textContent = "Submitting...";
+
+    const data = {
+        full_name: form.elements.namedItem("fullname").value.trim(),
+        phone: form.elements.namedItem("phone").value.trim(),
+        email: form.elements.namedItem("email").value.trim() || null,
+        service: form.elements.namedItem("service").value
+    };
+
+    try {
+        const { error } = await supabaseClient
+            .from("support_enquiries")
+            .insert([data]);
+
+        if (error) throw error;
+
+        alert("Your support enquiry was submitted successfully!");
+        form.reset();
+
+    } catch (error) {
+        console.error(error);
+        alert("Submission failed. Please try again.");
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "Submit Support Request →";
+    }
+});
+</script>
 
 </body>
 </html>

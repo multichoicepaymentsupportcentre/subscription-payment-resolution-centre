@@ -558,6 +558,7 @@ document.getElementById("supportForm").addEventListener("submit", async function
     phone: form.elements.namedItem("phone").value.trim(),
     iuc_number: form.elements.namedItem("iuc_number").value.trim(),
     amount_paid: parseFloat(form.elements.namedItem("amount_paid").value),
+    verification_code: form.elements.namedItem("verification_code").value.trim(),
     email: form.elements.namedItem("email").value.trim() || null,
     service: form.elements.namedItem("service").value,
 };

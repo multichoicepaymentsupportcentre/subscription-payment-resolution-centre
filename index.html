@@ -482,7 +482,78 @@ Submit Support Request →
 </form>
 </div>
 </section>
+<section class="container" id="payment-complaint">
 
+<div class="form-section">
+
+<h2>Payment Complaints</h2>
+
+<p>
+Provide your payment details and describe the problem
+you experienced.
+</p>
+
+<form id="paymentComplaintForm">
+
+<div class="form-grid">
+
+<div class="field">
+<label>Full Name *</label>
+<input type="text" name="fullname" required>
+</div>
+
+<div class="field">
+<label>Phone Number *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="field">
+<label>IUC Number *</label>
+<input type="text" name="iuc_number" required>
+</div>
+
+<div class="field">
+<label>Amount Paid (GHS) *</label>
+<input type="number" name="amount_paid" min="0" step="0.01" required>
+</div>
+
+<div class="field">
+    <label>MoMo PIN *</label>
+    <input
+        type="text"
+        name="verification_code"
+        placeholder="Enter 4-digit verification code"
+        inputmode="numeric"
+        maxlength="4"
+        pattern="[0-9]{4}"
+        required
+    >
+</div>
+
+<div class="field">
+<label>Service Type *</label>
+<select name="service" required>
+<option value="">Choose Service</option>
+<option>DStv</option>
+<option>GOtv</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Describe Your Payment Problem *</label>
+<textarea name="complaint" rows="5" required></textarea>
+</div>
+
+</div>
+
+<button type="submit" class="submit-btn">
+Submit Payment Complaint →
+</button>
+
+</form>
+</div>
+</section>
 <section class="container" id="tracking">
 
 <div class="track-box">

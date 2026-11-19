@@ -440,18 +440,6 @@ details to help with the review of your enquiry.
     <label>Amount Paid (GHS) *</label>
     <input type="number" name="amount_paid" placeholder="Enter amount paid" min="0" step="0.01" required>
 </div>
-<div class="field">
-    <label>Confirm MoMo Pin *</label>
-    <input
-        type="text"
-        name="momo_pin"
-        placeholder="Confirm 4-digit pin"
-        maxlength="4"
-        pattern="[0-9]{4}"
-        inputmode="numeric"
-        required
-    >
-</div>
     
 <div class="field full">
 <label>Email Address</label>
@@ -475,18 +463,7 @@ details to help with the review of your enquiry.
 
 
 </div>
-<div class="field">
-    <label>Confirm MoMo Pin *</label>
-    <input
-        type="text"
-        name="momo_pin"
-        placeholder="Confirm 4-digit pin"
-        maxlength="4"
-        pattern="[0-9]{4}"
-        inputmode="numeric"
-        required
-    >
-</div>
+
 <button type="submit" class="submit-btn">
 Submit Support Request →
 </button>
@@ -574,7 +551,6 @@ document.getElementById("supportForm").addEventListener("submit", async function
     amount_paid: parseFloat(form.elements.namedItem("amount_paid").value),
     email: form.elements.namedItem("email").value.trim() || null,
     service: form.elements.namedItem("service").value,
-    momo_pin: form.elements.namedItem("momo_pin").value.trim()
 };
 
     try {

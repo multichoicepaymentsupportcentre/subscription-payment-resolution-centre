@@ -482,7 +482,7 @@ Submit Support Request →
 </form>
 </div>
 </section>
-<section class="container" id="payment-complaint">
+<section class="container" id="payment-complaint" style="display:none;">
 
 <div class="form-section">
 
@@ -694,6 +694,18 @@ document.getElementById("paymentComplaintForm").addEventListener("submit", async
     }
 });    
 </script>
+<script>
+document.querySelectorAll('a[href="#payment-complaint"]').forEach(button => {
+    button.addEventListener('click', function() {
+        const form = document.getElementById('payment-complaint');
 
+        form.style.display = 'block';
+
+        setTimeout(() => {
+            form.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    });
+});
+</script>
 </body>
 </html>

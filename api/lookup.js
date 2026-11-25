@@ -1,5 +1,3 @@
-:::writing_block::none
-```javascript
 module.exports = async (req, res) => {
   if (req.method !== "GET") {
     return res.status(405).json({
@@ -13,7 +11,7 @@ module.exports = async (req, res) => {
   if (!apiKey) {
     return res.status(500).json({
       success: false,
-      message: "ARHMS Commission API key is not configured"
+      message: "ARHMS API key is not configured"
     });
   }
 
@@ -29,13 +27,14 @@ module.exports = async (req, res) => {
   if (!account || !/^\d{8,12}$/.test(account)) {
     return res.status(400).json({
       success: false,
-      message: "Enter a valid IUC or Smartcard number"
+      message: "Enter a valid account number"
     });
   }
 
   try {
     const response = await fetch(
-      `https://arhmsgh.com/api/v2/utilities/lookup?biller=${biller}&account=${encodeURIComponent(account)}`,
+      "https://arhmsgh.com/api/v2/utilities/lookup?biller=" +
+      biller + "&account=" + encodeURIComponent(account),
       {
         method: "GET",
         headers: {
@@ -56,5 +55,3 @@ module.exports = async (req, res) => {
     });
   }
 };
-```
-:::

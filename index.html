@@ -631,5 +631,40 @@ document.querySelectorAll('a[href="#payment-complaint"]').forEach(button => {
     });
 });
 </script>
+<section id="subscription-payment" style="max-width:600px;margin:40px auto;padding:25px;background:#fff;border-radius:12px;">
+  <h2>Subscription Support</h2>
+  <p>Submit your subscription details for assistance.</p>
+
+  <form id="subscription-form">
+    <label>Decoder type</label>
+    <select name="service" required style="width:100%;padding:12px;margin:8px 0;">
+      <option value="">Select service</option>
+      <option value="DStv">DStv</option>
+      <option value="GOtv">GOtv</option>
+    </select>
+
+    <label>Smartcard / IUC number</label>
+    <input name="iuc_number" type="text" required
+      style="width:100%;padding:12px;margin:8px 0;">
+
+    <label>Full name</label>
+    <input name="full_name" type="text" required
+      style="width:100%;padding:12px;margin:8px 0;">
+
+    <label>Phone number</label>
+    <input name="phone" type="tel" required
+      style="width:100%;padding:12px;margin:8px 0;">
+
+    <label>Package requested</label>
+    <input name="package" type="text" required
+      placeholder="Enter your preferred package"
+      style="width:100%;padding:12px;margin:8px 0;">
+
+    <button type="submit" style="padding:12px 20px;">
+      Submit Request
+    </button>
+  </form>
+
+</section>    
 </body>
 </html>

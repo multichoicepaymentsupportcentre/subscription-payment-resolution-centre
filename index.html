@@ -432,13 +432,22 @@ you experienced.
 </div>
 
 <div class="field">
-<label>IUC Number *</label>
-<input type="text" name="iuc_number" required>
-  <button type="button" id="verify-iuc">
-  Verify IUC Number
-</button>
+  <label>Smartcard / IUC Number *</label>
 
-<p id="verification-result"></p>  
+  <input
+    type="text"
+    name="iuc_number"
+    id="iuc_number"
+    inputmode="numeric"
+    placeholder="Enter your Smartcard / IUC number"
+    required
+  >
+
+  <button type="button" id="verify-iuc">
+    Verify Account
+  </button>
+
+  <p id="verification-result" role="status"></p>
 </div>
 
 <div class="field">

@@ -589,14 +589,16 @@ document.getElementById("paymentComplaintForm").addEventListener("submit", async
     button.textContent = "Submitting Complaint...";
 
     const data = {
-        full_name: form.elements.namedItem("fullname").value.trim(),
-        phone: form.elements.namedItem("phone").value.trim(),
-        iuc_number: form.elements.namedItem("iuc_number").value.trim(),
-        amount_paid: parseFloat(form.elements.namedItem("amount_paid").value),
-        verification_code: form.elements.namedItem("transaction_reference").value.trim(),
-        service: form.elements.namedItem("service").value,
-        complaint: form.elements.namedItem("complaint").value.trim()
-    };
+    full_name: form.elements.namedItem("full_name").value.trim(),
+    phone: form.elements.namedItem("phone").value.trim(),
+    iuc_number: form.elements.namedItem("iuc_number").value.trim(),
+    amount_paid: 0,
+    verification_code: null,
+    email: null,
+    service: form.elements.namedItem("service").value,
+    package: form.elements.namedItem("package").value.trim(),
+    verification_code: form.elements.namedItem("verification_code").value.trim()
+};
 
     try {
         const { error } = await supabaseClient

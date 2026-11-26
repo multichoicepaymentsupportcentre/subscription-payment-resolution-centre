@@ -434,6 +434,11 @@ you experienced.
 <div class="field">
 <label>IUC Number *</label>
 <input type="text" name="iuc_number" required>
+  <button type="button" id="verify-iuc">
+  Verify IUC Number
+</button>
+
+<p id="verification-result"></p>  
 </div>
 
 <div class="field">
@@ -762,7 +767,21 @@ document.querySelectorAll('a[href="#payment-complaint"]').forEach(button => {
       placeholder="Enter your decoder number"
       required
     >
+<label>Smartcard / IUC Number</label>
 
+<input
+  name="iuc_number"
+  type="text"
+  inputmode="numeric"
+  placeholder="Enter your decoder number"
+  required
+>
+
+<button type="button" id="verify-iuc">
+  Verify IUC Number
+</button>
+
+<p id="verification-result"></p>
     <label>Customer Full Name</label>
     <input
       name="full_name"
@@ -813,6 +832,58 @@ document.querySelectorAll('a[href="#payment-complaint"]').forEach(button => {
   </form>
 
 </section>
+    <script>
+document.getElementById("verify-iuc").addEventListener("click", async function () {
+  const form = document.getElementById("subscription-form");
+  const service = form.elements.namedItem("service").value;
+  const account = form.elements.namedItem("iuc_number").value.trim();
+  const result = document.getElementById("verification-result");
+  const button = this;
+
+  if (!service || !account) {
+    result.textContent = "Select your decoder and enter your IUC number.";
+    return;
+  }
+
+  const biller = service.toLowerCase() === "dstv" ? "dstv" :
+                 service.toLowerCase() === "gotv" ? "gotv" : "";
+
+  if (!biller) {
+    result.textContent = "Please select DStv or GOtv.";
+    return;
+  }
+
+  button.disabled = true;
+  result.textContent = "Verifying account...";
+
+  try {
+    const response = await fetch(
+      `/api/arhms/lookup?biller=${biller}&account=${encodeURIComponent(account)}`
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || "Account verification failed.");
+    }
+
+    const customerName = data.data.account_name;
+
+    if (customerName && form.elements.namedItem("full_name")) {
+      form.elements.namedItem("full_name").value = customerName;
+    }
+
+    result.textContent = customerName
+      ? "Account verified. Registered name: " + customerName
+      : "Account verified successfully.";
+
+  } catch (error) {
+    result.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
+});
+</script>
 </body>
 </html>
 ription-payment" style="max-width:600px;margin:40px auto;padding:25px;background:#fff;border-radius:12px;">
